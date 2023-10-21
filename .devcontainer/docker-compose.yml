@@ -1,0 +1,16 @@
+services:
+  app:
+    container_name: taskApp-vsc
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        USER_UID: 1000
+        USER_GID: 1000
+
+    volumes:
+      - ..:/workspace:cached
+
+    command: sleep infinity
+    user: vscode
+    

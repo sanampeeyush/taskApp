@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  migrate:
+    image: taskapp:latest
+    command: python3 manage.py migrate
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=taskApp.settings
+      - DATABASE_URL=sqlite:///app/db.sqlite3
+    working_dir: /data/taskApp/
+
+  test:
+    container_name: taskApp-test
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    command: ["sh", "-c", "python3 manage.py test && pytest && coverage html -d /data/taskApp/coverage_report"]
+    depends_on:
+      - app
+    environment:
+      - DJANGO_SETTINGS_MODULE=taskApp.settings
+
+  app:
+    container_name: taskApp
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: taskapp:latest
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+
+  

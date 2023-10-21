@@ -1,0 +1,28 @@
+[run]
+omit =
+    */site-packages/*
+    */dist-packages/*
+    */usr/lib/*    
+    */apps.py
+    */admin.py    
+    */tests.py
+    */migrations/*
+    manage.py
+    *settings.py
+    *__init__.py
+    *urls.py
+    *wsgi.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __str__
+    def __repr__
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    from __future__ import annotations
+    raise NotImplementedError
+    raise NotADirectoryError
+
+[html]
+directory = coverage_html_report

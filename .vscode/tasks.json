@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "envload",
+            "type": "shell",
+            "osx": {
+                "command": ".venv/bin/activate"
+            },
+            "windows": {
+                "command": ".venv\\Scripts\\Activate.ps1"
+            },
+            "linux": {
+                "command": ".venv/bin/activate"
+            },
+        },{
+            "label": "prelaunch",
+            "type": "shell",
+            "osx": {
+                "command": ".venv/bin/python manage.py migrate"
+            },
+            "windows": {
+                "command": ".venv\\Scripts\\python manage.py migrate"
+            },
+            "linux": {
+                "command": ".venv/bin/python manage.py migrate"
+            },
+            "dependsOn": ["requirements"]
+        },{
+            "label": "requirements",
+            "type": "shell",
+            "command": "pip install -r requirements.txt"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RunApp",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "127.0.0.1:8000"
+            ],
+            "django": true,
+            "preLaunchTask": "requirements",
+        },{
+            "name": "migrate",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "migrate"
+            ],
+            "django": true,
+        },{
+            "name": "makeMigrations",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "makemigrations"
+            ],          
+            "django": true,
+        }
+    ]
+}
