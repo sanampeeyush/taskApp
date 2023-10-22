@@ -10,7 +10,7 @@ This is a Django project called "TaskApp" that manages business information.
    git clone https://github.com/sanampeeyush/taskApp.git
    cd taskApp
 
-2. **Build & Run the Docker container for the project:**
+2. **Build & Run the Docker container for the project (locally):**
     ```shell
     # install and build
     docker compose build
@@ -27,11 +27,13 @@ This is a Django project called "TaskApp" that manages business information.
 
 4. **Run APIs over swagger at http://localhost:8000/swagger/ or http://localhost:8000/api/business/**
 
-5. **To stop the project**
+5. **Deployed over http://139.84.162.173:8000/swagger/**
+
+6. **To stop the project**
     ```
     docker compose down
 ## Running Test Cases and Coverage Report Generation
 
-4. **Running pytest and generating Coverage Reports**
+7. **Running pytest and generating Coverage Reports**
     ```shell
     docker compose up test    
